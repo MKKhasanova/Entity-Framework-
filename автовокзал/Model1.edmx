@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище avtovokModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Kor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Routes_Number" Type="int" />
+          <Property Name="Data" Type="nchar" MaxLength="10" />
+          <Property Name=" Departure" Type="nchar" MaxLength="20" />
+          <Property Name=" Departure_Time" Type="nchar" MaxLength="10" />
+          <Property Name=" Destination" Type="nchar" MaxLength="20" />
+          <Property Name=" Destination_Time" Type="nchar" MaxLength="10" />
+          <Property Name="Price" Type="money" />
+        </EntityType>
+        <EntityType Name="Rout">
+          <Key>
+            <PropertyRef Name="Rout_ID" />
+          </Key>
+          <Property Name="Rout_ID" Type="int" Nullable="false" />
+          <Property Name="Routes_number" Type="int" />
+          <Property Name="Otk" Type="nchar" MaxLength="20" />
+          <Property Name="Vrem_otp" Type="nchar" MaxLength="10" />
+          <Property Name="Town_ID" Type="int" />
+          <Property Name="Vrem_Prib" Type="nchar" MaxLength="10" />
+          <Property Name="Kol" Type="int" />
+          <Property Name="Vrem_Prib_NCH" Type="nchar" MaxLength="10" />
+          <Property Name="Info" Type="nchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Routes">
+          <Key>
+            <PropertyRef Name="Routes_ID" />
+          </Key>
+          <Property Name="Routes_ID" Type="int" Nullable="false" />
+          <Property Name="Routes_Number" Type="int" />
+          <Property Name="Otkuda" Type="nchar" MaxLength="20" />
+          <Property Name="Vremya_otpravlenya" Type="nchar" MaxLength="10" />
+          <Property Name="Town_ID" Type="int" />
+          <Property Name="Vremya_Pribitiya" Type="nchar" MaxLength="10" />
+          <Property Name="Kolichestvo_svob_biletov" Type="int" />
+          <Property Name="VreM_Prin_Nab" Type="nchar" MaxLength="10" />
+          <Property Name="Info" Type="nchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Stopover">
+          <Key>
+            <PropertyRef Name="Stopover_ID" />
+          </Key>
+          <Property Name="Stopover_ID" Type="int" Nullable="false" />
+          <Property Name="Village_ID" Type="int" />
+          <Property Name="Routes_ID" Type="int" />
+          <Property Name="Time" Type="nchar" MaxLength="10" />
+          <Property Name="Price" Type="money" />
+        </EntityType>
+        <EntityType Name="Town">
+          <Key>
+            <PropertyRef Name="Town_ID" />
+          </Key>
+          <Property Name="Town_ID" Type="int" Nullable="false" />
+          <Property Name="Town" Type="nchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Village">
+          <Key>
+            <PropertyRef Name="Village_ID" />
+          </Key>
+          <Property Name="Village_ID" Type="int" Nullable="false" />
+          <Property Name="Village_Name" Type="nchar" MaxLength="20" />
+        </EntityType>
+        <EntityContainer Name="Хранилище avtovokModelContainer">
+          <EntitySet Name="Kor" EntityType="Self.Kor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rout" EntityType="Self.Rout" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Routes" EntityType="Self.Routes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stopover" EntityType="Self.Stopover" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Town" EntityType="Self.Town" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Village" EntityType="Self.Village" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="avtovokModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Routes">
+          <Key>
+            <PropertyRef Name="Routes_ID" />
+          </Key>
+          <Property Name="Routes_ID" Type="Int32" Nullable="false" />
+          <Property Name="Routes_Number" Type="Int32" />
+          <Property Name="Otkuda" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Vremya_otpravlenya" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Town_ID" Type="Int32" />
+          <Property Name="Vremya_Pribitiya" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Kolichestvo_svob_biletov" Type="Int32" />
+          <Property Name="VreM_Prin_Nab" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Info" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Town">
+          <Key>
+            <PropertyRef Name="Town_ID" />
+          </Key>
+          <Property Name="Town_ID" Type="Int32" Nullable="false" />
+          <Property Name="Town1" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Village">
+          <Key>
+            <PropertyRef Name="Village_ID" />
+          </Key>
+          <Property Name="Village_ID" Type="Int32" Nullable="false" />
+          <Property Name="Village_Name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="avtovokEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Routes" EntityType="Self.Routes" />
+          <EntitySet Name="Town" EntityType="Self.Town" />
+          <EntitySet Name="Village" EntityType="Self.Village" />
+          <EntitySet Name="Rout" EntityType="avtovokModel.Rout" />
+          <EntitySet Name="Stopover" EntityType="avtovokModel.Stopover" />
+          <EntitySet Name="Kor" EntityType="avtovokModel.Kor" />
+        </EntityContainer>
+        <EntityType Name="Rout">
+          <Key>
+            <PropertyRef Name="Rout_ID" />
+          </Key>
+          <Property Name="Rout_ID" Type="Int32" Nullable="false" />
+          <Property Name="Routes_number" Type="Int32" />
+          <Property Name="Otk" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Vrem_otp" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Town_ID" Type="Int32" />
+          <Property Name="Vrem_Prib" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Kol" Type="Int32" />
+          <Property Name="Vrem_Prib_NCH" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Info" Type="String" MaxLength="150" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Stopover">
+          <Key>
+            <PropertyRef Name="Stopover_ID" />
+          </Key>
+          <Property Name="Stopover_ID" Type="Int32" Nullable="false" />
+          <Property Name="Village_ID" Type="Int32" />
+          <Property Name="Routes_ID" Type="Int32" />
+          <Property Name="Time" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="Kor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Routes_Number" Type="Int32" />
+          <Property Name="Data" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="C_Departure" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="C_Departure_Time" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="C_Destination" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="C_Destination_Time" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище avtovokModelContainer" CdmEntityContainer="avtovokEntities">
+          <EntitySetMapping Name="Routes">
+            <EntityTypeMapping TypeName="avtovokModel.Routes">
+              <MappingFragment StoreEntitySet="Routes">
+                <ScalarProperty Name="Info" ColumnName="Info" />
+                <ScalarProperty Name="Routes_ID" ColumnName="Routes_ID" />
+                <ScalarProperty Name="Routes_Number" ColumnName="Routes_Number" />
+                <ScalarProperty Name="Otkuda" ColumnName="Otkuda" />
+                <ScalarProperty Name="Vremya_otpravlenya" ColumnName="Vremya_otpravlenya" />
+                <ScalarProperty Name="Town_ID" ColumnName="Town_ID" />
+                <ScalarProperty Name="Vremya_Pribitiya" ColumnName="Vremya_Pribitiya" />
+                <ScalarProperty Name="Kolichestvo_svob_biletov" ColumnName="Kolichestvo_svob_biletov" />
+                <ScalarProperty Name="VreM_Prin_Nab" ColumnName="VreM_Prin_Nab" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Town">
+            <EntityTypeMapping TypeName="avtovokModel.Town">
+              <MappingFragment StoreEntitySet="Town">
+                <ScalarProperty Name="Town_ID" ColumnName="Town_ID" />
+                <ScalarProperty Name="Town1" ColumnName="Town" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Village">
+            <EntityTypeMapping TypeName="avtovokModel.Village">
+              <MappingFragment StoreEntitySet="Village">
+                <ScalarProperty Name="Village_ID" ColumnName="Village_ID" />
+                <ScalarProperty Name="Village_Name" ColumnName="Village_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rout">
+            <EntityTypeMapping TypeName="avtovokModel.Rout">
+              <MappingFragment StoreEntitySet="Rout">
+                <ScalarProperty Name="Info" ColumnName="Info" />
+                <ScalarProperty Name="Vrem_Prib_NCH" ColumnName="Vrem_Prib_NCH" />
+                <ScalarProperty Name="Kol" ColumnName="Kol" />
+                <ScalarProperty Name="Vrem_Prib" ColumnName="Vrem_Prib" />
+                <ScalarProperty Name="Town_ID" ColumnName="Town_ID" />
+                <ScalarProperty Name="Vrem_otp" ColumnName="Vrem_otp" />
+                <ScalarProperty Name="Otk" ColumnName="Otk" />
+                <ScalarProperty Name="Routes_number" ColumnName="Routes_number" />
+                <ScalarProperty Name="Rout_ID" ColumnName="Rout_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stopover">
+            <EntityTypeMapping TypeName="avtovokModel.Stopover">
+              <MappingFragment StoreEntitySet="Stopover">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Routes_ID" ColumnName="Routes_ID" />
+                <ScalarProperty Name="Village_ID" ColumnName="Village_ID" />
+                <ScalarProperty Name="Stopover_ID" ColumnName="Stopover_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kor">
+            <EntityTypeMapping TypeName="avtovokModel.Kor">
+              <MappingFragment StoreEntitySet="Kor">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="C_Destination_Time" ColumnName=" Destination_Time" />
+                <ScalarProperty Name="C_Destination" ColumnName=" Destination" />
+                <ScalarProperty Name="C_Departure_Time" ColumnName=" Departure_Time" />
+                <ScalarProperty Name="C_Departure" ColumnName=" Departure" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Routes_Number" ColumnName="Routes_Number" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
